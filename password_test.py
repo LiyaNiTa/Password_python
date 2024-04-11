@@ -27,5 +27,22 @@ class TestPassword(unittest.TestCase):
         "Password is too similar on other user field.")
 
 
+
+  # def test_generate_key(self):
+    # self.assertEqual(self.password.generate_key(),
+                    # "Ключ") # этим тестом было проверено, что программа кажый раз генерирует новый ключ
+
+  def test_register(self):
+    self.assertEqual(self.password.register("Test", "test"),
+                     "\n[+] Пользователь уже существует!!\n") # Данный тест выявил ошибку в программе,
+                                                                        # при входе уже зарегистрированного пользователя.
+
+
+  def test_login(self):
+    self.assertEqual(self.password.login("Test", "test"),
+                     "\n[-] Invalid Login credentials. Please use the credentials you used to register.\n") # Данный тест выявил ошибку в программе,
+                                                                        # при входе уже зарегистрированного пользователя.
+
+
 if __name__ == "__main__":
   unittest.main()
